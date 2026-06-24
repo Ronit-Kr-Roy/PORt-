@@ -38,12 +38,6 @@ PORt/
 - Push this folder to a GitHub repository.
 - Sign‑in to Vercel, import the repo, and Vercel will automatically detect a **static site** and deploy it.
 - After the first deploy, you can set a custom domain or use the provided Vercel URL.
-
-## 🙋‍♂️ Need More?
-- Update the **schedule link** in the hero CTA (`<a href="..." class="btn btn-primary">Schedule a Call</a>`).
-- Replace placeholder testimonials with your own quotes.
-- Add more project cards by copying the existing HTML block and adjusting the `data-tags` attribute for filtering.
-
 ---
 
 *Happy hunting!*
