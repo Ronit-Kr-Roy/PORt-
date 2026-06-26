@@ -139,3 +139,160 @@ filterButtons.forEach(btn => {
 });
 
 
+// Contact Form QA Validation and WhatsApp Redirection
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("submit-btn");
+    const statusBanner = document.getElementById("form-status-banner");
+
+    // CONFIGURATION: Replace this with your actual WhatsApp phone number (with country code, no + or spaces)
+    const WHATSAPP_NUMBER = "91XXXXXXXXXX"; 
+
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Reset banner and previous states
+            statusBanner.style.display = "none";
+            statusBanner.textContent = "";
+            statusBanner.style.backgroundColor = "";
+            statusBanner.style.color = "";
+            statusBanner.style.border = "";
+
+            let isValid = true;
+            let firstInvalidElement = null;
+
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const serviceSelect = document.getElementById("service");
+            const messageTextarea = document.getElementById("message");
+
+            const errorFields = {
+                name: document.getElementById("name-error"),
+                email: document.getElementById("email-error"),
+                service: document.getElementById("service-error"),
+                message: document.getElementById("message-error")
+            };
+
+            // Clear previous errors
+            Object.values(errorFields).forEach(errSpan => {
+                if (errSpan) errSpan.textContent = "";
+            });
+            [nameInput, emailInput, serviceSelect, messageTextarea].forEach(input => {
+                if (input) input.style.borderColor = "";
+            });
+
+            // 1. QA VALIDATION CHECKS
+
+            // Name Validation (Required, min 3 chars, no purely numeric names)
+            const nameVal = nameInput.value.trim();
+            if (!nameVal) {
+                isValid = false;
+                nameInput.style.borderColor = "#ff4d4d";
+                errorFields.name.textContent = "Name or Company is required.";
+                if (!firstInvalidElement) firstInvalidElement = nameInput;
+            } else if (nameVal.length < 3) {
+                isValid = false;
+                nameInput.style.borderColor = "#ff4d4d";
+                errorFields.name.textContent = "Name must be at least 3 characters long.";
+                if (!firstInvalidElement) firstInvalidElement = nameInput;
+            } else if (/^\d+$/.test(nameVal)) {
+                isValid = false;
+                nameInput.style.borderColor = "#ff4d4d";
+                errorFields.name.textContent = "Name cannot consist of numbers only.";
+                if (!firstInvalidElement) firstInvalidElement = nameInput;
+            }
+
+            // Email Validation (Required, must match standard email pattern)
+            const emailVal = emailInput.value.trim();
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailVal) {
+                isValid = false;
+                emailInput.style.borderColor = "#ff4d4d";
+                errorFields.email.textContent = "Email address is required.";
+                if (!firstInvalidElement) firstInvalidElement = emailInput;
+            } else if (!emailRegex.test(emailVal)) {
+                isValid = false;
+                emailInput.style.borderColor = "#ff4d4d";
+                errorFields.email.textContent = "Please enter a valid email address (e.g. name@domain.com).";
+                if (!firstInvalidElement) firstInvalidElement = emailInput;
+            }
+
+            // Service Selection Validation (Required selection)
+            const serviceVal = serviceSelect.value;
+            if (!serviceVal) {
+                isValid = false;
+                serviceSelect.style.borderColor = "#ff4d4d";
+                errorFields.service.textContent = "Please select a service option.";
+                if (!firstInvalidElement) firstInvalidElement = serviceSelect;
+            }
+
+            // Message Validation (Required, min 15 chars for high-quality project details)
+            const messageVal = messageTextarea.value.trim();
+            if (!messageVal) {
+                isValid = false;
+                messageTextarea.style.borderColor = "#ff4d4d";
+                errorFields.message.textContent = "Project requirements are required.";
+                if (!firstInvalidElement) firstInvalidElement = messageTextarea;
+            } else if (messageVal.length < 15) {
+                isValid = false;
+                messageTextarea.style.borderColor = "#ff4d4d";
+                errorFields.message.textContent = "Please provide more details (minimum 15 characters).";
+                if (!firstInvalidElement) firstInvalidElement = messageTextarea;
+            }
+
+            // If QA validation failed, focus first invalid element and exit
+            if (!isValid) {
+                if (firstInvalidElement) {
+                    firstInvalidElement.focus();
+                }
+                return;
+            }
+
+            // 2. WHATSAPP REDIRECTION LOGIC
+            if (WHATSAPP_NUMBER === "91XXXXXXXXXX") {
+                statusBanner.style.display = "block";
+                statusBanner.style.backgroundColor = "rgba(220, 53, 69, 0.15)";
+                statusBanner.style.color = "#dc3545";
+                statusBanner.style.border = "1px solid #dc3545";
+                statusBanner.textContent = "Developer Warning: Please configure your active WhatsApp number in main.js.";
+                return;
+            }
+
+            // Disable button and show redirection state
+            submitBtn.textContent = "Opening WhatsApp...";
+            submitBtn.disabled = true;
+
+            // Format a highly structured message
+            const formattedMessage = 
+`*New Project Request* 🚀
+----------------------------------------
+*Name/Company:* ${nameVal}
+*Email:* ${emailVal}
+*Service Requested:* ${serviceVal}
+
+*Project Details:*
+${messageVal}
+----------------------------------------`;
+
+            // Encode message for URL query param
+            const encodedMessage = encodeURIComponent(formattedMessage);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+            // Show success banner
+            statusBanner.style.display = "block";
+            statusBanner.style.backgroundColor = "rgba(40, 167, 69, 0.15)";
+            statusBanner.style.color = "#28a745";
+            statusBanner.style.border = "1px solid #28a745";
+            statusBanner.textContent = "Form validated! Redirecting you to WhatsApp...";
+
+            // Redirect user to WhatsApp after a short delay
+            setTimeout(() => {
+                window.open(whatsappUrl, "_blank");
+                submitBtn.textContent = "Send Project Request";
+                submitBtn.disabled = false;
+                form.reset();
+            }, 1000);
+        });
+    }
+});
