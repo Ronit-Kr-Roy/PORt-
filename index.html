@@ -275,31 +275,37 @@
             <div class="contact-content glass-panel">
                 <p>Ready to build or scale your next application? Fill out the form below with your project requirements, and I'll get back to you within 24 hours.</p>
                 <div class="contact-form-container">
-                    <form action="mailto:ronitofficial99@gmail.com" method="POST" enctype="text/plain" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name or Company" required>
+                    <form id="contact-form" class="contact-form" novalidate>
+                        <div class="form-group" style="position: relative; margin-bottom: 1.8rem;">
+                            <input type="text" name="name" id="name" placeholder="Your Name or Company" required>
+                            <span class="error-msg" id="name-error" style="color: #ff4d4d; font-size: 0.8rem; position: absolute; bottom: -18px; left: 5px; font-family: 'Fira Code', monospace;"></span>
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email Address" required>
+                        <div class="form-group" style="position: relative; margin-bottom: 1.8rem;">
+                            <input type="email" name="email" id="email" placeholder="Your Email Address" required>
+                            <span class="error-msg" id="email-error" style="color: #ff4d4d; font-size: 0.8rem; position: absolute; bottom: -18px; left: 5px; font-family: 'Fira Code', monospace;"></span>
                         </div>
-                        <div class="form-group">
-                            <select name="service" required>
+                        <div class="form-group" style="position: relative; margin-bottom: 1.8rem;">
+                            <select name="service" id="service" required>
                                 <option value="" disabled selected>What do you need help with?</option>
-                                <option value="fullstack">Full-Stack Development</option>
-                                <option value="qa">QA & Automation Testing</option>
-                                <option value="cloud">Cloud Infrastructure (AWS/Azure)</option>
-                                <option value="consulting">General Consulting</option>
+                                <option value="Full-Stack Development">Full-Stack Development</option>
+                                <option value="QA & Automation Testing">QA & Automation Testing</option>
+                                <option value="Cloud Infrastructure (AWS/Azure)">Cloud Infrastructure (AWS/Azure)</option>
+                                <option value="General Consulting">General Consulting</option>
                             </select>
+                            <span class="error-msg" id="service-error" style="color: #ff4d4d; font-size: 0.8rem; position: absolute; bottom: -18px; left: 5px; font-family: 'Fira Code', monospace;"></span>
                         </div>
-                        <div class="form-group">
-                            <textarea name="message" rows="5" placeholder="Tell me about your project requirements..." required></textarea>
+                        <div class="form-group" style="position: relative; margin-bottom: 1.8rem;">
+                            <textarea name="message" id="message" rows="5" placeholder="Tell me about your project requirements..." required minlength="10"></textarea>
+                            <span class="error-msg" id="message-error" style="color: #ff4d4d; font-size: 0.8rem; position: absolute; bottom: -18px; left: 5px; font-family: 'Fira Code', monospace;"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary submit-btn">Send Project Request</button>
+                        <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">Send Project Request</button>
+                        <div id="form-status-banner" style="display:none; margin-top: 1rem; padding: 12px; border-radius: 6px; font-size: 0.95rem; text-align: center; font-weight: 500;"></div>
                     </form>
                 </div>
                 <div class="contact-links" style="margin-top: 2rem;">
                     <a href="resume.pdf" target="_blank" class="btn btn-secondary">Download CV</a>
                     <a href="mailto:ronitofficial99@gmail.com" class="btn btn-secondary">Direct Email</a>
+                    <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Ronit,%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect!" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="whatsapp-link">WhatsApp</a>
                     <a href="https://linkedin.com/in/ronit-kumar-roy-a1b519" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
                 </div>
