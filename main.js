@@ -59,12 +59,20 @@ window.addEventListener('scroll', () => {
 
 // Developer Boot Preloader Sequence
 document.addEventListener("DOMContentLoaded", () => {
-    // Lock scrolling while preloader runs
-    document.body.style.overflow = "hidden";
-
+    const preloader = document.getElementById("preloader");
     const terminal = document.getElementById("preloader-terminal");
     const progressBar = document.querySelector(".preloader-progress");
-    const preloader = document.getElementById("preloader");
+    const skipBtn = document.getElementById("skip-preloader-btn");
+
+    // Session-based preloader skip (stops annoying loading sequences on re-visits)
+    if (sessionStorage.getItem("hasSeenPreloader")) {
+        if (preloader) preloader.style.display = "none";
+        document.body.style.overflow = "auto";
+        return;
+    }
+
+    // Lock scrolling while preloader runs
+    document.body.style.overflow = "hidden";
 
     const bootMessages = [
         { text: "initializing RKR core system modules...", type: "info" },
@@ -81,37 +89,81 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentLine = 0;
     const totalDuration = 2200; // Total loading time in ms
     const stepInterval = totalDuration / bootMessages.length;
+    let isSkipped = false;
+    let timeoutId = null;
+
+    // Skip helper function
+    function skipIntro() {
+        if (isSkipped) return;
+        isSkipped = true;
+        clearTimeout(timeoutId);
+        
+        // Mark session so they don't have to wait on page reload / navigation
+        sessionStorage.setItem("hasSeenPreloader", "true");
+        
+        // Hide preloader smoothly
+        if (preloader) {
+            preloader.classList.add("fade-out");
+            setTimeout(() => {
+                preloader.style.display = "none";
+            }, 800);
+        }
+        document.body.style.overflow = "auto";
+    }
+
+    // Add Skip Event Listeners
+    if (skipBtn) {
+        skipBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            skipIntro();
+        });
+    }
+    if (preloader) {
+        preloader.addEventListener("click", skipIntro);
+    }
+    
+    // Keypress triggers (Space, Enter, Escape to instantly bypass the sequence)
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " " || e.key === "Escape") {
+            if (preloader && !preloader.classList.contains("fade-out")) {
+                skipIntro();
+            }
+        }
+    });
 
     function addTerminalLine() {
+        if (isSkipped) return;
         if (currentLine < bootMessages.length) {
             const msg = bootMessages[currentLine];
             const p = document.createElement("p");
             p.className = `terminal-line ${msg.type}`;
             p.textContent = `$ ${msg.text}`;
-            terminal.appendChild(p);
             
-            // Auto-scroll terminal to bottom
-            terminal.scrollTop = terminal.scrollHeight;
+            if (terminal) {
+                terminal.appendChild(p);
+                // Auto-scroll terminal to bottom
+                terminal.scrollTop = terminal.scrollHeight;
+            }
 
             currentLine++;
             
             // Update progress bar
-            const percent = (currentLine / bootMessages.length) * 100;
-            progressBar.style.width = `${percent}%`;
+            if (progressBar) {
+                const percent = (currentLine / bootMessages.length) * 100;
+                progressBar.style.width = `${percent}%`;
+            }
 
-            setTimeout(addTerminalLine, stepInterval);
+            timeoutId = setTimeout(addTerminalLine, stepInterval);
         } else {
-            // End of loading sequence
-            setTimeout(() => {
-                preloader.classList.add("fade-out");
-                // Restore scroll
-                document.body.style.overflow = "auto";
+            // End of loading sequence, auto-close after 300ms
+            timeoutId = setTimeout(() => {
+                skipIntro();
             }, 300);
         }
     }
 
     // Start boot sequence
-    setTimeout(addTerminalLine, 150);
+    timeoutId = setTimeout(addTerminalLine, 150);
 });
 
 // Project Filter Logic
@@ -146,9 +198,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusBanner = document.getElementById("form-status-banner");
 
     // CONFIGURATION: Replace this with your actual WhatsApp phone number (with country code, no + or spaces)
-    const WHATSAPP_NUMBER = "91XXXXXXXXXX"; 
+    const WHATSAPP_NUMBER = "918580302377"; 
 
     if (form) {
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const serviceSelect = document.getElementById("service");
+        const messageTextarea = document.getElementById("message");
+
+        const errorFields = {
+            name: document.getElementById("name-error"),
+            email: document.getElementById("email-error"),
+            service: document.getElementById("service-error"),
+            message: document.getElementById("message-error")
+        };
+
+        // Real-time validation listeners to clear errors on user input/change
+        if (nameInput) {
+            nameInput.addEventListener("input", () => {
+                nameInput.style.borderColor = "";
+                if (errorFields.name) errorFields.name.textContent = "";
+            });
+        }
+        if (emailInput) {
+            emailInput.addEventListener("input", () => {
+                emailInput.style.borderColor = "";
+                if (errorFields.email) errorFields.email.textContent = "";
+            });
+        }
+        if (serviceSelect) {
+            serviceSelect.addEventListener("change", () => {
+                serviceSelect.style.borderColor = "";
+                if (errorFields.service) errorFields.service.textContent = "";
+            });
+        }
+        if (messageTextarea) {
+            messageTextarea.addEventListener("input", () => {
+                messageTextarea.style.borderColor = "";
+                if (errorFields.message) errorFields.message.textContent = "";
+            });
+        }
+
         form.addEventListener("submit", (e) => {
             e.preventDefault();
 
@@ -161,18 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let isValid = true;
             let firstInvalidElement = null;
-
-            const nameInput = document.getElementById("name");
-            const emailInput = document.getElementById("email");
-            const serviceSelect = document.getElementById("service");
-            const messageTextarea = document.getElementById("message");
-
-            const errorFields = {
-                name: document.getElementById("name-error"),
-                email: document.getElementById("email-error"),
-                service: document.getElementById("service-error"),
-                message: document.getElementById("message-error")
-            };
 
             // Clear previous errors
             Object.values(errorFields).forEach(errSpan => {
@@ -249,21 +327,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // 2. WHATSAPP REDIRECTION LOGIC
-            if (WHATSAPP_NUMBER === "91XXXXXXXXXX") {
-                statusBanner.style.display = "block";
-                statusBanner.style.backgroundColor = "rgba(220, 53, 69, 0.15)";
-                statusBanner.style.color = "#dc3545";
-                statusBanner.style.border = "1px solid #dc3545";
-                statusBanner.textContent = "Developer Warning: Please configure your active WhatsApp number in main.js.";
-                return;
-            }
-
-            // Disable button and show redirection state
-            submitBtn.textContent = "Opening WhatsApp...";
+            // Disable button and show submission state
+            submitBtn.textContent = "Submitting Request...";
             submitBtn.disabled = true;
 
-            // Format a highly structured message
+            // Format a highly structured message for WhatsApp
             const formattedMessage = 
 `*New Project Request* 🚀
 ----------------------------------------
@@ -275,24 +343,74 @@ document.addEventListener("DOMContentLoaded", () => {
 ${messageVal}
 ----------------------------------------`;
 
-            // Encode message for URL query param
-            const encodedMessage = encodeURIComponent(formattedMessage);
-            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-
-            // Show success banner
+            // Show intermediate state in the banner
             statusBanner.style.display = "block";
-            statusBanner.style.backgroundColor = "rgba(40, 167, 69, 0.15)";
-            statusBanner.style.color = "#28a745";
-            statusBanner.style.border = "1px solid #28a745";
-            statusBanner.textContent = "Form validated! Redirecting you to WhatsApp...";
+            statusBanner.style.backgroundColor = "rgba(56, 189, 248, 0.15)";
+            statusBanner.style.color = "#38bdf8";
+            statusBanner.style.border = "1px solid #38bdf8";
+            statusBanner.textContent = "Sending project request to email...";
 
-            // Redirect user to WhatsApp after a short delay
-            setTimeout(() => {
-                window.open(whatsappUrl, "_blank");
-                submitBtn.textContent = "Send Project Request";
-                submitBtn.disabled = false;
-                form.reset();
-            }, 1000);
+            // Use FormData to ensure FormSubmit.co parses all fields (Name, Email, Service, Message) correctly
+            const formData = new FormData(form);
+            formData.append("_subject", `New Project Request from ${nameVal}`);
+            formData.append("_captcha", "false");
+
+            // Submit to FormSubmit.co via AJAX (Fetch API)
+            fetch("https://formsubmit.co/ajax/ronitofficial99@gmail.com", {
+                method: "POST",
+                headers: { 
+                    "Accept": "application/json"
+                },
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Email submission failed");
+                }
+            })
+            .then(data => {
+                // Email sent successfully! Update status banner to show redirection to WhatsApp
+                statusBanner.style.backgroundColor = "rgba(40, 167, 69, 0.15)";
+                statusBanner.style.color = "#28a745";
+                statusBanner.style.border = "1px solid #28a745";
+                statusBanner.textContent = "Success! Email sent. Redirecting to WhatsApp...";
+                
+                submitBtn.textContent = "Opening WhatsApp...";
+                
+                // Encode message for URL query param
+                const encodedMessage = encodeURIComponent(formattedMessage);
+                const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+                // Redirect user to WhatsApp after a short delay
+                setTimeout(() => {
+                    window.open(whatsappUrl, "_blank");
+                    submitBtn.textContent = "Send Project Request";
+                    submitBtn.disabled = false;
+                    form.reset();
+                }, 1000);
+            })
+            .catch(error => {
+                console.error("FormSubmit Error:", error);
+                // Fallback: If email delivery fails or is offline, still redirect to WhatsApp
+                statusBanner.style.backgroundColor = "rgba(220, 53, 69, 0.15)";
+                statusBanner.style.color = "#dc3545";
+                statusBanner.style.border = "1px solid #dc3545";
+                statusBanner.textContent = "Email service offline. Redirecting to WhatsApp direct chat...";
+
+                submitBtn.textContent = "Opening WhatsApp...";
+
+                const encodedMessage = encodeURIComponent(formattedMessage);
+                const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+                setTimeout(() => {
+                    window.open(whatsappUrl, "_blank");
+                    submitBtn.textContent = "Send Project Request";
+                    submitBtn.disabled = false;
+                    form.reset();
+                }, 1500);
+            });
         });
     }
 });
