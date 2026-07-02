@@ -3,7 +3,7 @@ import os
 
 source_dest_pairs = [
     (
-        r"C:\Users\HP\.gemini\antigravity-ide\brain\fee31fe8-d80e-421b-b972-c6e74dbdb2b3\playwright_logo_1782593577110.png",
+        r"C:\Users\HP\.gemini\antigravity-ide\brain\93371c90-9106-4164-9296-59a6bd6e8da9\playwright_icon_1782991504230.png",
         r"assets/playwright_icon.png"
     ),
     (

@@ -414,3 +414,79 @@ ${messageVal}
         });
     }
 });
+
+// Dark/Light Theme Switcher Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-theme");
+            
+            // Persist the theme selection in localStorage
+            if (document.body.classList.contains("light-theme")) {
+                localStorage.setItem("theme", "light");
+            } else {
+                localStorage.setItem("theme", "dark");
+            }
+        });
+    }
+});
+
+// Custom Cursor Trailer Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const cursorDot = document.querySelector('.custom-cursor-dot');
+    const cursorOutline = document.querySelector('.custom-cursor-outline');
+
+    if (cursorDot && cursorOutline) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let outlineX = 0;
+        let outlineY = 0;
+        let isCursorVisible = false;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            if (!isCursorVisible) {
+                cursorDot.style.opacity = '1';
+                cursorOutline.style.opacity = '1';
+                isCursorVisible = true;
+            }
+
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        const animateOutline = () => {
+            outlineX += (mouseX - outlineX) * 0.15;
+            outlineY += (mouseY - outlineY) * 0.15;
+
+            cursorOutline.style.left = outlineX + 'px';
+            cursorOutline.style.top = outlineY + 'px';
+            requestAnimationFrame(animateOutline);
+        };
+        animateOutline();
+
+        // Event delegation for hovering interactive elements
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, input, select, textarea, .btn, .filter-btn, .theme-toggle-btn, [role="button"]')) {
+                document.body.classList.add('cursor-hover');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, input, select, textarea, .btn, .filter-btn, .theme-toggle-btn, [role="button"]')) {
+                if (!e.relatedTarget || !e.relatedTarget.closest('a, button, input, select, textarea, .btn, .filter-btn, .theme-toggle-btn, [role="button"]')) {
+                    document.body.classList.remove('cursor-hover');
+                }
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+            cursorOutline.style.opacity = '0';
+            isCursorVisible = false;
+        });
+    }
+});
