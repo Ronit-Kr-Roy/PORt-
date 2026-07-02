@@ -48,19 +48,43 @@ PORt/
 
 ## 🚀 Running Locally
 
-1. **Clone or navigate** to the folder:
+Choose any of the following options to run the portfolio website locally on your computer:
+
+### Option 1: Using Python HTTP Server (Recommended)
+Since Python is typically pre-installed or easily available on Windows, macOS, and Linux:
+1. Open your terminal or PowerShell and navigate to the project directory:
    ```bash
    cd C:\Users\HP\Downloads\PORt
    ```
-
-2. **Start a local HTTP server** (Python is bundled with Windows):
+2. Start the built-in HTTP server:
    ```powershell
    python -m http.server 8000
    ```
+3. Open your browser and navigate to:
+   - **Main Portfolio**: [http://localhost:8000](http://localhost:8000)
+   - **Contact Card**: [http://localhost:8000/contact_card.html](http://localhost:8000/contact_card.html)
 
-3. **View the sites** in your web browser:
-   - Main Portfolio: [http://localhost:8000](http://localhost:8000)
-   - Contact Card: [http://localhost:8000/contact_card.html](http://localhost:8000/contact_card.html)
+### Option 2: VS Code Live Server (Easiest for UI/UX Development)
+If you are editing the code using VS Code:
+1. Install the **Live Server** extension by Ritwick Dey (if you haven't already).
+2. Right-click on `index.html` in the file explorer sidebar.
+3. Select **Open with Live Server** (or click **Go Live** in the status bar at the bottom right).
+4. The site will automatically open and auto-reload whenever you save changes.
+
+### Option 3: Using Node.js (`npx`)
+If you have Node.js installed, you can launch a server instantly without installing global packages:
+1. In the project directory, run:
+   ```bash
+   npx serve .
+   ```
+2. Open the URL shown in your terminal (typically `http://localhost:3000` or `http://localhost:5000`).
+
+### Option 4: Direct Browser Execution (Zero-Setup)
+If you just want a quick look without starting a server:
+1. Simply navigate to the folder in your file explorer.
+2. Double-click **`index.html`** to open it directly in your web browser.
+   > [!NOTE]
+   > Some advanced browser features or external API fetches might behave differently under the `file://` protocol due to browser security restrictions. For full functionality, using an HTTP server (Option 1, 2, or 3) is highly recommended.
 
 ---
 

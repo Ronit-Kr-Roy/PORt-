@@ -17,6 +17,10 @@ source_dest_pairs = [
     (
         r"C:\Users\HP\.gemini\antigravity-ide\brain\fee31fe8-d80e-421b-b972-c6e74dbdb2b3\ci_cd_logo_1782593616673.png",
         r"assets/ci_cd_icon.png"
+    ),
+    (
+        r"C:\Users\HP\.gemini\antigravity-ide\brain\93371c90-9106-4164-9296-59a6bd6e8da9\media__1782992115596.pdf",
+        r"resume.pdf"
     )
 ]
 
