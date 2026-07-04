@@ -1,6 +1,6 @@
 # 📋 Project Architecture & Implementation Summary
 
-This document provides a comprehensive summary of the **Ronit Kr Roy Premium Portfolio & Digital Contact Hub**, detailing the architecture, file structure, key features, and development workflows.
+This document provides a comprehensive summary of the **Ronit Kr. Roy Premium Portfolio & Digital Contact Hub**, detailing the architecture, file structure, key features, and development workflows.
 
 ---
 

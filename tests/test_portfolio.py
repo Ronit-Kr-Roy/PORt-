@@ -51,7 +51,7 @@ def test_portfolio_title(page: Page, target_url: str):
     page.goto(target_url)
     
     # Assert that the page title matches the expected name and designation exactly
-    expect(page).to_have_title("Ronit Kr Roy | Freelance SDET & Automation Expert")
+    expect(page).to_have_title("Ronit Kr. Roy | Freelance SDET & Automation Expert")
 
 def test_hero_section_visibility(page: Page, target_url: str):
     """
@@ -62,7 +62,7 @@ def test_hero_section_visibility(page: Page, target_url: str):
     page.goto(target_url)
     
     # Verify that the primary name header displays "Ronit Kr Roy"
-    expect(page.locator(".name")).to_have_text("Ronit Kr Roy")
+    expect(page.locator(".name")).to_have_text("Ronit Kr. Roy")
     
     # Verify that the role subtitle mentions full-stack, QA automation, and cloud expertise
     expect(page.locator(".role")).to_contain_text("Freelance Full-Stack, QA Automation & Cloud Expert")

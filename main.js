@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusBanner = document.getElementById("form-status-banner");
 
     // CONFIGURATION: Replace this with your actual WhatsApp phone number (with country code, no + or spaces)
-    const WHATSAPP_NUMBER = "918580302377"; 
+    const WHATSAPP_NUMBER = "918825177143"; 
 
     if (form) {
         const nameInput = document.getElementById("name");
