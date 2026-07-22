@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional portfolio of Ronit Kr. Roy, Software Engineer in Test (SDET) & QA Automation Lead | 4+ YOE.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ronit Kr. Roy | SDET & QA Automation Lead">
+    <meta property="og:description" content="Specializing in building enterprise-scale test automation frameworks (Playwright, Selenium, Python) and leading QA transformation initiatives.">
+    <meta property="og:url" content="https://ronitroy.github.io/">
+    <meta property="og:image" content="assets/profile_headshot.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Ronit Kr. Roy | SDET & QA Automation Lead">
+    <meta property="twitter:description" content="Specializing in building enterprise-scale test automation frameworks (Playwright, Selenium, Python) and leading QA transformation initiatives.">
+    <meta property="twitter:image" content="assets/profile_headshot.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <title>Ronit Kr. Roy | SDET & QA Automation Lead | 4+ YOE</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Local Script -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Landmark -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">RR.</a>
+            
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link-item">About</a></li>
+                <li><a href="#skills" class="nav-link-item">Expertise</a></li>
+                <li><a href="#projects" class="nav-link-item">Projects</a></li>
+                <li><a href="#contact" class="nav-link-item">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle dark/light theme" class="theme-toggle-btn">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+                <div class="burger" aria-label="Toggle mobile menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Landmark -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+            </div>
+            <div class="hero-container">
+                <div class="hero-content reveal">
+                    <div class="badge-wrapper">
+                        <span class="greeting-badge"><span class="greeting">Hi, I am</span> 👋</span>
+                    </div>
+                    <h1 class="name">Ronit Kr. Roy</h1>
+                    <p class="role">SDET & QA Automation Lead | 4+ YOE</p>
+                    <p class="hero-description">
+                        Specializing in building enterprise-scale test automation frameworks and leading QA transformation initiatives. Resilient automation frameworks using Python, Playwright, and Selenium to deliver zero-defect software at scale.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        <a href="resume.pdf" download class="btn btn-tertiary">Download CV</a>
+                    </div>
+                </div>
+                <!-- Hero Visual Tech Illustration -->
+                <div class="hero-visual reveal">
+                    <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                        <!-- Background decorative elements -->
+                        <circle cx="250" cy="250" r="180" stroke="url(#hero-grad)" stroke-width="1.5" stroke-dasharray="8 8" opacity="0.3" />
+                        <circle cx="250" cy="250" r="220" stroke="url(#hero-grad)" stroke-width="1" opacity="0.15" />
+                        
+                        <!-- Glowing center background -->
+                        <circle cx="250" cy="250" r="120" fill="url(#hero-glow)" opacity="0.1" />
+
+                        <!-- Floating Dashboard Mockup -->
+                        <rect x="110" y="140" width="280" height="190" rx="16" fill="var(--bg-secondary)" stroke="var(--card-border)" stroke-width="2" style="filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.5));" />
+                        
+                        <!-- Dashboard Header -->
+                        <rect x="130" y="165" width="60" height="8" rx="4" fill="var(--text-muted)" opacity="0.5" />
+                        <circle cx="350" cy="169" r="4" fill="#ef4444" />
+                        <circle cx="362" cy="169" r="4" fill="#f59e0b" />
+                        <circle cx="374" cy="169" r="4" fill="#10b981" />
+                        
+                        <!-- Dashboard Content Grid -->
+                        <!-- Big coverage circle -->
+                        <circle cx="190" cy="245" r="35" stroke="var(--card-border)" stroke-width="8" fill="none" />
+                        <circle cx="190" cy="245" r="35" stroke="url(#hero-grad)" stroke-width="8" stroke-dasharray="165 220" fill="none" stroke-linecap="round" />
+                        <text x="190" y="250" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="var(--text-primary)" text-anchor="middle">99%</text>
+                        <text x="190" y="295" font-family="'Inter', sans-serif" font-size="9" fill="var(--text-secondary)" text-anchor="middle" letter-spacing="0.5">COVERAGE</text>
+                        
+                        <!-- Metrics stats -->
+                        <rect x="255" y="210" width="105" height="24" rx="6" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1" />
+                        <text x="265" y="225" font-family="'Inter', sans-serif" font-weight="600" font-size="10" fill="#10b981">PASSED: 1,482</text>
+                        
+                        <rect x="255" y="242" width="105" height="24" rx="6" fill="rgba(239, 68, 68, 0.05)" stroke="rgba(239, 68, 68, 0.1)" stroke-width="1" />
+                        <text x="265" y="257" font-family="'Inter', sans-serif" font-weight="600" font-size="10" fill="#ef4444">FAILED: 0</text>
+                        
+                        <rect x="255" y="274" width="105" height="24" rx="6" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1" />
+                        <text x="265" y="289" font-family="'Inter', sans-serif" font-weight="600" font-size="10" fill="var(--text-secondary)">SKIPPED: 3</text>
+
+                        <!-- Floating tech badges -->
+                        <g transform="translate(80, 270)" style="filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.35));">
+                            <circle cx="28" cy="28" r="28" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1.5" />
+                            <path d="M18 28l7 7 15-15" stroke="var(--accent-secondary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        
+                        <g transform="translate(340, 100)" style="filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.35));">
+                            <circle cx="28" cy="28" r="28" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1.5" />
+                            <path d="M19 28l5 5 10-10" stroke="var(--accent-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        
+                        <defs>
+                            <linearGradient id="hero-grad" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="var(--accent-primary)" />
+                                <stop offset="100%" stop-color="var(--accent-secondary)" />
+                            </linearGradient>
+                            <radialGradient id="hero-glow" cx="250" cy="250" r="120" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="var(--accent-secondary)" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section reveal">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <div class="header-bar"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <p class="lead-text">
+                            I specialize in building enterprise-scale test automation frameworks and leading QA transformation initiatives. With 4+ years of hands-on SDET experience, I combine deep technical knowledge with leadership capabilities to deliver zero-defect software at scale.
+                        </p>
+                        <p>
+                            My approach combines solid software engineering with modern test automation practices. Whether collaborating within a team to architect resilient CI/CD pipelines, design automation frameworks using Python, Playwright, and Selenium, or partnering directly with clients to establish robust QA strategies, I ensure quality is baked into the code from the very first commit.
+                        </p>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-val">Remote / India</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Status:</span>
+                                <span class="detail-val">Open to Full-time & Projects</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">Test Coverage Goal</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Core Strengths & Soft Skills Grid -->
+                <div class="strengths-container">
+                    <h3 class="strengths-title">Core Competencies & Leadership</h3>
+                    <div class="strengths-grid">
+                        <div class="strength-card">
+                            <div class="strength-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h4>Team Collaboration & Synergy</h4>
+                            <p>An active, positive team player who thrives in cross-functional squads to align testing objectives with development sprints.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-icon">
+                                <i class="fa-solid fa-diagram-project"></i>
+                            </div>
+                            <h4>Team Coordination</h4>
+                            <p>Skillful coordinator managing testing tasks, running standups, and bridging communication gaps between business and engineering teams.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-icon">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <h4>Technical Documentation</h4>
+                            <p>Committed to detail. I create clean, structured test strategies, system wikis, and pipeline runbooks for long-term project success.</p>
+                        </div>
+                        <div class="strength-card">
+                            <div class="strength-icon">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <h4>Client Handling & Comm</h4>
+                            <p>Experienced in stakeholder engagement. I present testing results and system health transparently, building trust and aligning client goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise/Skills Section -->
+        <section id="skills" class="skills-section reveal">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>My Expertise</h2>
+                    <div class="header-bar"></div>
+                </div>
+                <div class="skills-grid">
+                    <!-- Category 1: Framework Design & Architecture -->
+                    <div class="skill-category-card">
+                        <div class="category-icon-wrapper">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3>Framework Design & Architecture</h3>
+                        <ul class="skill-list">
+                            <li>Custom test automation framework design</li>
+                            <li>Page Object Model & Screenplay patterns</li>
+                            <li>Maintainable & scalable test code</li>
+                            <li>Python, JS, Playwright, Selenium</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 2: CI/CD Pipeline Integration -->
+                    <div class="skill-category-card">
+                        <div class="category-icon-wrapper">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3>CI/CD Pipeline Integration</h3>
+                        <ul class="skill-list">
+                            <li>Pipeline optimization & parallelism</li>
+                            <li>GitHub Actions, Jenkins, GitLab CI</li>
+                            <li>Test reporting & dashboard integration</li>
+                            <li>Webhooks & automated failure analysis</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 3: Security Agent Testing -->
+                    <div class="skill-category-card">
+                        <div class="category-icon-wrapper">
+                            <i class="fa-solid fa-bug"></i>
+                        </div>
+                        <h3>Security Agent Testing</h3>
+                        <ul class="skill-list">
+                            <li>Multi-vendor agent validation</li>
+                            <li>Trellix & McAfee endpoint security</li>
+                            <li>Sophos & Symantec agent behaviors</li>
+                            <li>CrowdStrike threat simulation testing</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 4: Cloud-Native Testing -->
+                    <div class="skill-category-card">
+                        <div class="category-icon-wrapper">
+                            <i class="fa-cloud"></i>
+                        </div>
+                        <h3>Cloud-Native Testing</h3>
+                        <ul class="skill-list">
+                            <li>AWS & Azure test environment setup</li>
+                            <li>Serverless & containerized test runner configs</li>
+                            <li>IAM & security configuration testing</li>
+                            <li>Cloud infrastructure mock frameworks</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 5: Team Leadership & Mentoring -->
+                    <div class="skill-category-card">
+                        <div class="category-icon-wrapper">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h3>Team Leadership & Mentoring</h3>
+                        <ul class="skill-list">
+                            <li>QA strategy & transformation initiatives</li>
+                            <li>Mentoring junior QA & SDET engineers</li>
+                            <li>Agile QA methodologies (Scrum/Kanban)</li>
+                            <li>Quality metrics, KPI tracking & reports</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 6: Performance & Load Testing -->
+                    <div class="skill-category-card">
+                        <div class="category-icon-wrapper">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h3>Performance & Load Testing</h3>
+                        <ul class="skill-list">
+                            <li>High-scale performance & load testing</li>
+                            <li>Locust & Python script authoring</li>
+                            <li>Grafana & Prometheus dashboard setup</li>
+                            <li>Bottleneck analysis & system tuning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Infinite Marquee -->
+        <section class="tech-marquee-section reveal">
+            <div class="marquee-container">
+                <div class="marquee-title">Tools & Technologies I Trust</div>
+                <div class="marquee-wrapper">
+                    <div class="marquee-content">
+                        <!-- Group 1 -->
+                        <div class="tech-item"><img src="assets/playwright_icon.png" alt="Playwright" class="tech-img"><span>Playwright</span></div>
+                        <div class="tech-item"><img src="assets/selenium_icon.png" alt="Selenium" class="tech-img"><span>Selenium</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-aws"></i><span>AWS Cloud</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+                        <div class="tech-item"><img src="assets/ci_cd_icon.png" alt="CI/CD" class="tech-img"><span>Jenkins & CI/CD</span></div>
+                        <div class="tech-item"><img src="assets/spring_icon.png" alt="Spring Boot" class="tech-img"><span>Spring Boot</span></div>
+                        <div class="tech-item"><img src="assets/react_icon.png" alt="React" class="tech-img"><span>React.js</span></div>
+                        <!-- Group 2 (duplicate for infinite scroll loop) -->
+                        <div class="tech-item"><img src="assets/playwright_icon.png" alt="Playwright" class="tech-img"><span>Playwright</span></div>
+                        <div class="tech-item"><img src="assets/selenium_icon.png" alt="Selenium" class="tech-img"><span>Selenium</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-aws"></i><span>AWS Cloud</span></div>
+                        <div class="tech-item"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+                        <div class="tech-item"><img src="assets/ci_cd_icon.png" alt="CI/CD" class="tech-img"><span>Jenkins & CI/CD</span></div>
+                        <div class="tech-item"><img src="assets/spring_icon.png" alt="Spring Boot" class="tech-img"><span>Spring Boot</span></div>
+                        <div class="tech-item"><img src="assets/react_icon.png" alt="React" class="tech-img"><span>React.js</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="projects-section reveal">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <div class="header-bar"></div>
+                </div>
+
+                <!-- Highlight Projects Section -->
+                <div class="highlight-projects-container">
+                    <h3 class="subsection-title">Flagship Implementations</h3>
+                    <div class="highlight-grid">
+                        <!-- Highlight Project 1 -->
+                        <div class="highlight-project">
+                            <span class="highlight-badge">Endpoint Security Testing</span>
+                            <div class="project-img-wrapper">
+                                <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                                    <rect width="400" height="240" rx="12" fill="var(--bg-secondary)" />
+                                    <path d="M0 40h400M0 80h400M0 120h400M0 160h400M0 200h400M40 0v240M80 0v240M120 0v240M160 0v240M200 0v240M240 0v240M280 0v240M320 0v240M360 0v240" stroke="var(--card-border)" stroke-width="0.5" opacity="0.3"/>
+                                    
+                                    <circle cx="200" cy="120" r="50" fill="url(#proj1-glow)" opacity="0.15" />
+                                    <path d="M200 65l35 15v45c0 22-15 42-35 48-20-6-35-26-35-48V80l35-15z" fill="none" stroke="var(--accent-primary)" stroke-width="3" stroke-linejoin="round" />
+                                    
+                                    <g transform="translate(40, 60)">
+                                        <rect x="0" y="0" width="100" height="28" rx="6" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1"/>
+                                        <circle cx="15" cy="14" r="4" fill="#10b981"/>
+                                        <text x="28" y="18" font-family="'Inter', sans-serif" font-size="9" fill="var(--text-primary)" font-weight="600">CrowdStrike</text>
+                                    </g>
+                                    <g transform="translate(40, 100)">
+                                        <rect x="0" y="0" width="100" height="28" rx="6" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1"/>
+                                        <circle cx="15" cy="14" r="4" fill="#10b981"/>
+                                        <text x="28" y="18" font-family="'Inter', sans-serif" font-size="9" fill="var(--text-primary)" font-weight="600">Sophos Agent</text>
+                                    </g>
+                                    <g transform="translate(40, 140)">
+                                        <rect x="0" y="0" width="100" height="28" rx="6" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1"/>
+                                        <circle cx="15" cy="14" r="4" fill="#10b981"/>
+                                        <text x="28" y="18" font-family="'Inter', sans-serif" font-size="9" fill="var(--text-primary)" font-weight="600">Trellix VSE</text>
+                                    </g>
+                                    
+                                    <rect x="250" y="70" width="110" height="100" rx="8" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1" />
+                                    <text x="265" y="95" font-family="'Outfit', sans-serif" font-size="11" fill="var(--text-secondary)">Mitigation Time</text>
+                                    <text x="265" y="125" font-family="'Outfit', sans-serif" font-size="22" font-weight="800" fill="var(--accent-secondary)">&lt; 1.2s</text>
+                                    <text x="265" y="150" font-family="'Inter', sans-serif" font-size="9" fill="#10b981" font-weight="600">✓ SLA Validated</text>
+                                    
+                                    <defs>
+                                        <radialGradient id="proj1-glow" cx="200" cy="120" r="50" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0%" stop-color="var(--accent-primary)" />
+                                            <stop offset="100%" stop-color="var(--accent-primary)" stop-opacity="0" />
+                                        </radialGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="highlight-project-content">
+                                <h4>Enterprise Security Agent Validation Suite</h4>
+                                <p>A massive, automated test suite validating multi-vendor security agents (Trellix, McAfee, Sophos, Symantec, CrowdStrike) on endpoints, simulating threat behaviors and validating mitigation response times at scale.</p>
+                                <div class="project-tech-tags">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Playwright</span>
+                                    <span class="tech-tag">Threat Simulation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Highlight Project 2 -->
+                        <div class="highlight-project">
+                            <span class="highlight-badge">Cloud-Native Load Testing</span>
+                            <div class="project-img-wrapper">
+                                <svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg">
+                                    <rect width="400" height="240" rx="12" fill="var(--bg-secondary)" />
+                                    <path d="M0 40h400M0 80h400M0 120h400M0 160h400M0 200h400M40 0v240M80 0v240M120 0v240M160 0v240M200 0v240M240 0v240M280 0v240M320 0v240M360 0v240" stroke="var(--card-border)" stroke-width="0.5" opacity="0.3"/>
+                                    
+                                    <path d="M120 140h160M160 100l40 40-40 40" stroke="var(--card-border)" stroke-width="1.5" stroke-dasharray="4 4" />
+                                    
+                                    <rect x="50" y="85" width="80" height="70" rx="8" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1" />
+                                    <text x="90" y="115" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="var(--text-primary)" text-anchor="middle">AWS</text>
+                                    <text x="90" y="135" font-family="'Inter', sans-serif" font-size="8" fill="var(--text-muted)" text-anchor="middle">500 RUNNERS</text>
+                                    
+                                    <rect x="270" y="85" width="80" height="70" rx="8" fill="var(--bg-tertiary)" stroke="var(--card-border)" stroke-width="1" />
+                                    <text x="310" y="115" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="var(--text-primary)" text-anchor="middle">AZURE</text>
+                                    <text x="310" y="135" font-family="'Inter', sans-serif" font-size="8" fill="var(--text-muted)" text-anchor="middle">500 RUNNERS</text>
+                                    
+                                    <g transform="translate(150, 70)">
+                                        <rect width="100" height="100" rx="50" fill="url(#proj2-glow)" opacity="0.1" />
+                                        <circle cx="50" cy="50" r="32" stroke="var(--accent-secondary)" stroke-width="2.5" fill="none" />
+                                        <path d="M30 50h12l8-15 10 30 8-20 6 5h26" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    
+                                    <rect x="110" y="185" width="180" height="28" rx="14" fill="rgba(6, 182, 212, 0.1)" stroke="rgba(6, 182, 212, 0.2)" stroke-width="1" />
+                                    <text x="200" y="202" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="var(--accent-secondary)" text-anchor="middle">100k+ Req/Sec Simulated</text>
+                                    
+                                    <defs>
+                                        <radialGradient id="proj2-glow" cx="50" cy="50" r="50" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0%" stop-color="var(--accent-secondary)" />
+                                            <stop offset="100%" stop-color="var(--accent-secondary)" stop-opacity="0" />
+                                        </radialGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div class="highlight-project-content">
+                                <h4>Cloud-Native Performance Testing Framework</h4>
+                                <p>A distributed load testing engine deploying containerized test runners on AWS and Azure to simulate high-concurrency user flows, pushing system limits and visualizing real-time metrics on Grafana dashboards.</p>
+                                <div class="project-tech-tags">
+                                    <span class="tech-tag">AWS / Azure</span>
+                                    <span class="tech-tag">Locust</span>
+                                    <span class="tech-tag">Grafana / Docker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Filter Controls -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="qa">QA Automation</button>
+                    <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+                </div>
+
+                <!-- Detailed Projects Grid (Exactly 6 Cards) -->
+                <div class="projects-grid">
+                    <!-- Project Card 1: Full-stack -->
+                    <div class="project-detailed-card" data-category="fullstack">
+                        <div class="project-card-header">
+                            <span class="category-tag">Full-Stack</span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <h4>Mocking & Test-Data Microservices</h4>
+                        <p>Decoupled Spring Boot backend simulating banking services to generate dynamic test data for integration environments, optimized with Redis.</p>
+                        <div class="project-card-footer">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: QA -->
+                    <div class="project-detailed-card" data-category="qa">
+                        <div class="project-card-header">
+                            <span class="category-tag">QA Automation</span>
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h4>Enterprise Playwright Framework</h4>
+                        <p>Robust functional & visual testing suite with Playwright and Pytest targeting enterprise cloud systems, running in parallel on GitHub Actions.</p>
+                        <div class="project-card-footer">
+                            <span class="tech-tag">Playwright</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">GitHub Actions</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Full-stack -->
+                    <div class="project-detailed-card" data-category="fullstack">
+                        <div class="project-card-header">
+                            <span class="category-tag">Full-Stack</span>
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h4>QA Reporting Portal</h4>
+                        <p>Real-time automated test results dashboard utilizing Node.js and WebSockets to stream execution status and screenshots to a MongoDB datastore.</p>
+                        <div class="project-card-footer">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4: QA -->
+                    <div class="project-detailed-card" data-category="qa">
+                        <div class="project-card-header">
+                            <span class="category-tag">QA Automation</span>
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h4>Distributed Load Testing Engine</h4>
+                        <p>Scalable performance testing framework simulating thousands of concurrent operations on target APIs using Locust, Python, and Grafana.</p>
+                        <div class="project-card-footer">
+                            <span class="tech-tag">Locust</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Grafana</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5: Full-stack -->
+                    <div class="project-detailed-card" data-category="fullstack">
+                        <div class="project-card-header">
+                            <span class="category-tag">Full-Stack</span>
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <h4>Test Case Management Board</h4>
+                        <p>A collaborative test planning and case execution board with dynamic drag-and-drop mapping, PostgreSQL storage, and OAuth authentication.</p>
+                        <div class="project-card-footer">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Prisma</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6: QA / Hybrid -->
+                    <div class="project-detailed-card" data-category="qa">
+                        <div class="project-card-header">
+                            <span class="category-tag">QA Automation</span>
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h4>APISentry Schema Validator</h4>
+                        <p>A customizable, CLI-driven API contract automation tool validating JSON schemas against live responses using Pytest and Python requests.</p>
+                        <div class="project-card-footer">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pytest</span>
+                            <span class="tech-tag">OpenAPI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications-section reveal">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Credentials & Badges</h2>
+                    <div class="header-bar"></div>
+                </div>
+                <div class="badges-grid">
+                    <div class="badge">
+                        <div class="badge-icon">
+                            <i class="fa-brands fa-microsoft"></i>
+                        </div>
+                        <span class="badge-title">Microsoft Certified: Azure Administrator (AZ-104)</span>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <span class="badge-title">Certified Scrum Master</span>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">
+                            <i class="fa-brands fa-aws"></i>
+                        </div>
+                        <span class="badge-title">AWS Fundamentals</span>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <span class="badge-title">Python & Selenium Test Automation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Stats Section -->
+        <section id="github-stats" class="github-stats-section reveal">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Open Source Contribution</h2>
+                    <div class="header-bar"></div>
+                </div>
+                <div class="github-stats-wrapper">
+                    <!-- Standard GitHub Readme Stats API -->
+                    <img src="https://github-readme-stats.vercel.app/api?username=ronitroy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=131926" alt="Ronit's GitHub Stats" class="stats-card-img dark-stats">
+                    <img src="https://github-readme-stats.vercel.app/api?username=ronitroy&show_icons=true&theme=default&hide_border=true&bg_color=f3f4f6" alt="Ronit's GitHub Stats" class="stats-card-img light-stats" style="display: none;">
+                    
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ronitroy&layout=compact&theme=tokyonight&hide_border=true&bg_color=131926" alt="Top Languages" class="stats-card-img dark-stats">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ronitroy&layout=compact&theme=default&hide_border=true&bg_color=f3f4f6" alt="Top Languages" class="stats-card-img light-stats" style="display: none;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section reveal">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="header-bar"></div>
+                </div>
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h3>Connect with Me</h3>
+                        <p>Feel free to reach out for career opportunities, consulting requests, or full-stack/automation projects.</p>
+                        
+                        <div class="contact-details-list">
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>ronitofficial99@gmail.com</span>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Kolkata, West Bengal, India</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-actions">
+                            <a href="ronit_roy.vcf" download class="vcard-download-btn">
+                                <i class="fa-solid fa-address-card"></i> Save Contact (vCard)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper">
+                        <form id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="name-input">Full Name *</label>
+                                <input type="text" id="name-input" required placeholder="e.g., Jane Smith">
+                                <span class="error-msg">Please enter your name</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-input">Email Address *</label>
+                                <input type="email" id="email-input" required placeholder="e.g., jane.smith@example.com">
+                                <span class="error-msg">Please enter a valid email</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-input">Your Message *</label>
+                                <textarea id="message-input" required rows="5" placeholder="How can I help you?"></textarea>
+                                <span class="error-msg">Please write a message</span>
+                            </div>
+                            <button type="submit" id="submit-btn" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                        <!-- Form Success Banner -->
+                        <div id="form-status-banner" class="status-banner" style="display: none;">
+                            <i class="fa-solid fa-circle-check"></i> Message sent successfully! I'll get back to you shortly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Landmark -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Ronit Kr. Roy. All Rights Reserved.</p>
+            <p class="footer-tagline">SDET & QA Automation Lead</p>
+        </div>
+    </footer>
+</body>
+</html>

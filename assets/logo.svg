@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+    <defs>
+        <!-- Master Brand Gradient -->
+        <linearGradient id="rr-master-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8b5cf6" />
+            <stop offset="50%" stop-color="#6366f1" />
+            <stop offset="100%" stop-color="#06b6d4" />
+        </linearGradient>
+    </defs>
+
+    <!-- Outer Orbital Ring -->
+    <circle cx="60" cy="60" r="54" 
+            fill="#131926" 
+            stroke="url(#rr-master-grad)" 
+            stroke-width="4" />
+
+    <!-- Inner Precision Tech Guide Ring -->
+    <circle cx="60" cy="60" r="46" 
+            fill="none" 
+            stroke="url(#rr-master-grad)" 
+            stroke-width="1.5" 
+            stroke-dasharray="8 5" 
+            opacity="0.35" />
+
+    <!-- Perfect Typographic 'R R' Monogram -->
+    <text x="60" y="69" 
+          text-anchor="middle" 
+          font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" 
+          font-weight="900" 
+          font-size="34" 
+          letter-spacing="5" 
+          fill="url(#rr-master-grad)">R R</text>
+
+    <!-- Tech Nodes -->
+    <circle cx="60" cy="14" r="3.5" fill="#06b6d4" />
+    <circle cx="60" cy="106" r="3.5" fill="#8b5cf6" />
+    <circle cx="14" cy="60" r="3.5" fill="#6366f1" />
+    <circle cx="106" cy="60" r="3.5" fill="#06b6d4" />
+</svg>
