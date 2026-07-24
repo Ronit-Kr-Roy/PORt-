@@ -51,7 +51,11 @@ def test_page_title(desktop_page: Page):
     (no longer "Freelance SDET").
     """
     expect(desktop_page).to_have_title(
+<<<<<<< HEAD
         "Ronit Kr. Roy | Full-Stack, QA Automation & Cloud Engineer"
+=======
+        "Ronit Kr. Roy | SDET & QA Automation Lead | 4+ YOE"
+>>>>>>> origin/dev
     )
 
 
@@ -72,7 +76,11 @@ def test_hero_role_no_freelance(desktop_page: Page):
     and DOES contain the correct updated title.
     """
     role = desktop_page.locator(".role")
+<<<<<<< HEAD
     expect(role).to_contain_text("Full-Stack, QA Automation & Cloud Engineer")
+=======
+    expect(role).to_contain_text("SDET & QA Automation Lead")
+>>>>>>> origin/dev
     # Negative assertion: 'Freelance' must NOT appear in the role
     assert "Freelance" not in role.inner_text(), (
         "Role subtitle should no longer contain 'Freelance'"
@@ -148,11 +156,20 @@ def test_highlighted_project_cards(desktop_page: Page):
     """
     cards = desktop_page.locator(".highlight-project")
     assert cards.count() == 2, f"Expected 2 highlight cards, got {cards.count()}"
+<<<<<<< HEAD
     expect(cards.first.locator(".highlight-badge")).to_have_text(
         "Endpoint Security & Networking"
     )
     expect(cards.nth(1).locator(".highlight-badge")).to_have_text(
         "Next-Gen Frontend Dev"
+=======
+
+    expect(cards.first.locator(".highlight-badge")).to_have_text(
+        "Endpoint Security Testing"
+    )
+    expect(cards.nth(1).locator(".highlight-badge")).to_have_text(
+        "Cloud-Native Load Testing"
+>>>>>>> origin/dev
     )
 
 
@@ -166,12 +183,21 @@ def test_skills_section_all_categories(desktop_page: Page):
     expect(skills).to_be_visible()
 
     expected_categories = [
+<<<<<<< HEAD
         "Frontend Development",
         "Backend Architecture",
         "QA Automation",
         "Cloud Services",
         "Manual Testing & Reporting",
         "IT Support & Security",
+=======
+        "Framework Design & Architecture",
+        "CI/CD Pipeline Integration",
+        "Security Agent Testing",
+        "Cloud-Native Testing",
+        "Team Leadership & Mentoring",
+        "Performance & Load Testing",
+>>>>>>> origin/dev
     ]
     for category in expected_categories:
         expect(skills.locator(f"h3:has-text('{category}')")).to_be_visible(), (
@@ -205,7 +231,11 @@ def test_footer_content(desktop_page: Page):
     """
     footer_text = desktop_page.locator("footer.footer").inner_text()
     assert "Ronit Kr. Roy" in footer_text
+<<<<<<< HEAD
     assert "Full-Stack Engineer" in footer_text or "QA Automation" in footer_text
+=======
+    assert "SDET" in footer_text or "QA Automation" in footer_text
+>>>>>>> origin/dev
 
 
 # =============================================================================
