@@ -319,8 +319,8 @@ def test_project_filter_all_restores(desktop_page: Page):
         if not is_hidden:
             visible_count += 1
 
-    assert visible_count == 6, (
-        f"'All Projects' filter should show 6 cards, got {visible_count}"
+    assert visible_count == 9, (
+        f"'All Projects' filter should show 9 cards, got {visible_count}"
     )
 
 

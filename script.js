@@ -1,4 +1,32 @@
+// ─── Page Loader Dismissal ────────────────────────────────────────────────────
+(function () {
+    const loader = document.getElementById('page-loader');
+    if (!loader) return;
+
+    function hideLoader() {
+        loader.classList.add('loader-hidden');
+        // Remove from DOM completely after transition ends (0.55s)
+        loader.addEventListener('transitionend', () => {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, { once: true });
+    }
+
+    // Hide after bar animation completes (~1.9s) + small buffer
+    const minDisplay = 2100;
+    const startTime  = Date.now();
+
+    window.addEventListener('load', () => {
+        const elapsed   = Date.now() - startTime;
+        const remaining = Math.max(0, minDisplay - elapsed);
+        setTimeout(hideLoader, remaining);
+    });
+
+    // Safety fallback — never block the user more than 4s
+    setTimeout(hideLoader, 4000);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+
     // ─── Theme Toggle ─────────────────────────────────────────────────────────
     const themeToggle = document.getElementById('theme-toggle');
     // Load persisted theme
