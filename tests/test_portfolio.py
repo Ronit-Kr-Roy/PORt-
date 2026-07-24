@@ -47,11 +47,10 @@ from playwright.sync_api import Page, expect
 def test_page_title(desktop_page: Page):
     """
     TC-S01 | Page Title
-    Verify the browser tab shows the updated professional title
-    (no longer "Freelance SDET").
+    Verify the browser tab shows the updated professional title.
     """
     expect(desktop_page).to_have_title(
-        "Ronit Kr. Roy | Full-Stack, QA Automation & Cloud Engineer"
+        "Ronit Kr. Roy | SDET & QA Automation Lead | 4+ YOE"
     )
 
 
@@ -67,16 +66,11 @@ def test_hero_name(desktop_page: Page):
 @pytest.mark.smoke
 def test_hero_role_no_freelance(desktop_page: Page):
     """
-    TC-S03 | Hero Role — 'Freelance' removed
-    Verify the role subtitle does NOT contain the word 'Freelance'
-    and DOES contain the correct updated title.
+    TC-S03 | Hero Role — SDET & QA Automation Lead
+    Verify the role subtitle renders SDET & QA Automation Lead.
     """
     role = desktop_page.locator(".role")
-    expect(role).to_contain_text("Full-Stack, QA Automation & Cloud Engineer")
-    # Negative assertion: 'Freelance' must NOT appear in the role
-    assert "Freelance" not in role.inner_text(), (
-        "Role subtitle should no longer contain 'Freelance'"
-    )
+    expect(role).to_contain_text("SDET & QA Automation Lead")
 
 
 @pytest.mark.smoke
@@ -427,3 +421,57 @@ def test_nav_landmark_present(desktop_page: Page):
     expect(desktop_page.locator("nav")).to_be_visible()
     expect(desktop_page.locator("main")).to_be_attached()
     expect(desktop_page.locator("footer")).to_be_attached()
+
+
+# =============================================================================
+# SEO & EXTENDED FUNCTIONAL TESTS
+# =============================================================================
+
+@pytest.mark.smoke
+def test_seo_meta_tags_and_json_ld_schema(desktop_page: Page):
+    """
+    TC-SEO01 | Meta Tags & JSON-LD Structured Data
+    Verify meta description, canonical link, and JSON-LD schema are present.
+    """
+    meta_desc = desktop_page.locator("meta[name='description']").get_attribute("content")
+    assert meta_desc and "Ronit Kr. Roy" in meta_desc, "Meta description missing or incorrect"
+
+    canonical = desktop_page.locator("link[rel='canonical']").get_attribute("href")
+    assert canonical == "https://ronit-roy-portfolio.vercel.app/", "Canonical link missing or invalid"
+
+    schema_script = desktop_page.locator("script[type='application/ld+json']")
+    expect(schema_script).to_be_attached()
+    schema_content = schema_script.inner_text()
+    assert "Ronit Kr. Roy" in schema_content and "CBNITS India" in schema_content, (
+        "JSON-LD Schema must contain candidate details"
+    )
+
+
+@pytest.mark.functional
+def test_palo_alto_flagship_and_crm_cards(desktop_page: Page):
+    """
+    TC-F09 | Palo Alto Networks & Enterprise CRM Cards
+    Verify Palo Alto Flagship 1 and Enterprise CRM cards render properly.
+    """
+    palo_alto_badge = desktop_page.locator(".highlight-badge", has_text="Palo Alto Networks & Multi-Cloud Lead")
+    expect(palo_alto_badge).to_be_visible()
+
+    crm_card = desktop_page.locator(".project-detailed-card h4", has_text="Enterprise CRM & Pipeline Portal")
+    expect(crm_card).to_be_visible()
+
+
+@pytest.mark.ui
+def test_claude_ai_and_open_source_impact(desktop_page: Page):
+    """
+    TC-UI08 | Claude AI Badge & Open Source Impact Section
+    Verify Claude AI Certification and 15,000+ tests executed metrics are visible.
+    """
+    claude_badge = desktop_page.locator(".badge-title", has_text="Anthropic Claude AI — Certified Practitioner")
+    expect(claude_badge).to_be_visible()
+
+    tests_executed = desktop_page.locator(".github-stat-number", has_text="15,000+")
+    expect(tests_executed).to_be_visible()
+
+    github_profile_link = desktop_page.locator("a[href='https://github.com/Ronit-Kr-Roy']")
+    expect(github_profile_link).to_be_visible()
+

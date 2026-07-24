@@ -995,6 +995,14 @@ section {
     color: var(--text-primary);
 }
 
+.badge-sub {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.5;
+    text-align: center;
+}
+
 /* =============================================================================
    Contact Section
    ============================================================================= */
